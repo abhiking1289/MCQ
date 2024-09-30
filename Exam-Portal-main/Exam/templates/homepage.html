@@ -1,0 +1,133 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Quiz & Test Portal</title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f4f6f9; /* Soft background */
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #007bff; /* Navbar color */
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            padding: 3em;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .abt {
+            background-color: white; /* Card background */
+            padding: 2em;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007bff; /* Header color */
+        }
+        h3 {
+            color: #333; /* Subtitle color */
+        }
+        h5 {
+            line-height: 1.6; /* Better readability */
+            margin-bottom: 1.5em; /* Spacing */
+        }
+        .button-group {
+            display: flex; /* Flexbox for alignment */
+            justify-content: space-between; /* Space between buttons */
+            margin-bottom: 1.5em; /* Spacing below the button group */
+        }
+        button {
+            border-radius: 25px; /* Rounded button corners */
+            padding: 10px 20px; /* Button padding */
+            transition: background-color 0.3s;
+            flex: 1; /* Make buttons equal width */
+            margin: 0 0.25em; /* Closer margins between buttons */
+        }
+        .btn-login {
+            background-color: #007bff; /* Button color */
+            color: white;
+        }
+        .btn-login:hover {
+            background-color: #0056b3; /* Button hover color */
+        }
+        .img-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px; /* Rounded corners for image */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #007bff; /* Footer color */
+            color: white; /* Footer text color */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand">School Quiz & Test Portal</a>
+    </nav>
+    
+    <div class="main">
+        <div class="abt">
+            <h1>About Us</h1>
+            <h3>Your Gateway to Engaging Learning</h3>
+            <h5>Welcome to the School Quiz & Test Portal! Our platform is designed specifically for schools to create and manage quizzes and tests seamlessly.</h5>
+            <h5>We understand the challenges of conducting assessments, and our secure MCQ-based system allows teachers to easily create examinations, schedule them, and monitor student progress. Students can track their performance and stay updated on future assessments.</h5>
+            
+            <div class="prof">
+                <h2>Professor Section:</h2>
+                <div class="button-group">
+                    <form method="get" action="{% url 'faculty-login' %}">
+                        <button type="submit" class="btn btn-login">Login</button>
+                    </form>
+                    <form method="get" action="{% url 'faculty-register' %}">
+                        <button type="submit" class="btn btn-login">Signup</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="student mt-4">
+                <h2>Student Section:</h2>
+                <div class="button-group">
+                    <form method="get" action="{% url 'login' %}">
+                        <button type="submit" class="btn btn-login">Login</button>
+                    </form>
+                    <form method="get" action="{% url 'register' %}">
+                        <button type="submit" class="btn btn-login">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="img-container">
+            <img src="{% static 'img/about.jpg' %}" alt="About Image">
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Abhishek Kumar Pandey and Aditya Gupta</p>
+        <p>&copy; 2024 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
